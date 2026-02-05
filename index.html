@@ -6,6 +6,7 @@
 -->
 <html>
 	<head>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 		<title>Miniport by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -43,10 +44,36 @@
 }
 
 .welcome-content h1 {
-    font-size: clamp(2rem, 8vw, 5rem); /* 响应式字体大小 */
-    letter-spacing: 0.5em;
-    margin-bottom: 20px;
-    font-weight: 200;
+    /* 1. 字体：优先使用 Inter，这是 Linear 风格的灵魂 */
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* 2. 颜色与大小 */
+    color: #ffffff;
+    font-size: clamp(2.5rem, 10vw, 6rem); /* 响应式大小 */
+    
+    /* 3. 粗细：Linear 喜欢稍微粗一点或极细，这里推荐 700 更有力量感 */
+    font-weight: 700;
+    
+    /* 4. 字间距：紧凑是高级感的来源，负值是关键 */
+    letter-spacing: -0.04em; 
+    
+    /* 5. 文字阴影：不要那种很脏的投影，要这种微弱的发光感或清晰的分层感 */
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
+                 0 0 20px rgba(255, 255, 255, 0.1);
+    
+    /* 6. 细节微调 */
+    margin-bottom: 10px;
+    line-height: 1.1;
+    text-transform: uppercase; /* 强制大写更有设计感 */
+}
+
+/* 顺便优化一下副标题 p 标签 */
+.welcome-content p {
+    font-family: "Inter", sans-serif;
+    color: rgba(255, 255, 255, 0.7); /* 稍微透明一点，突出主标题 */
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    font-weight: 300;
 }
 
 /* 下滑提示动画 */
@@ -280,6 +307,7 @@
 	</body>
 
 </html>
+
 
 
 
