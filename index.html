@@ -12,39 +12,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 <style>
-	/* 针对导航栏的磨砂玻璃方案 */
-.header-section {
-    /* 1. 背景颜色：纯黑，但带 0.7 的透明度，让底下的内容能透过来 */
-    background-color: rgba(0, 0, 0, 0.7) !important; 
-    
-    /* 2. 核心：毛玻璃效果 */
-    backdrop-filter: blur(15px) !important; 
-    -webkit-backdrop-filter: blur(15px) !important;
-    
-    /* 3. Linear 风格细边框：在底部加一条极淡的白线，区分内容 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    
-    /* 4. 确保导航栏在滑动时始终固定在最上方 */
-    position: fixed !important;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    
-    /* 去掉原有的背景渐变或图片 */
-    background-image: none !important;
-}
-
-/* 顺便调整一下导航栏里的文字颜色，确保在黑底上清晰 */
-.header-section .nav-link, .header-section .navbar-brand {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-}
-
-/* 鼠标悬停时的文字颜色：变为白色 */
-.header-section .nav-link:hover {
-    color: #ffffff !important;
-}
 #welcome-screen {
     position: relative; /* 改为相对定位，使其占据文档流的第一屏 */
     width: 100%;
@@ -117,7 +84,38 @@
     font-weight: 300;
 }
 </style>
-		
+	<style>
+/* 针对你模板中的导航栏进行精准覆盖 */
+header, .header-section, .navbar, .fixed-top {
+    /* 1. 纯黑 + 磨砂玻璃 (!important 确保优先级最高) */
+    background-color: rgba(0, 0, 0, 0.7) !important; 
+    backdrop-filter: blur(20px) !important; 
+    -webkit-backdrop-filter: blur(20px) !important;
+    
+    /* 2. 去掉原有的背景图片、渐变、投影 */
+    background-image: none !important;
+    box-shadow: none !important;
+    
+    /* 3. Linear 风格的底部细边框 */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    /* 4. 确保它是固定在顶部的 */
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    transition: all 0.3s ease;
+}
+
+/* 调整导航文字颜色，防止在黑底上看不见 */
+.navbar-nav .nav-link, .nav-item a, .navbar-brand {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+}
+</style>	
 	</head>
 	<body class="is-preload">
 
@@ -333,6 +331,7 @@
 	</body>
 
 </html>
+
 
 
 
