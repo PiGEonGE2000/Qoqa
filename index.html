@@ -12,6 +12,64 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 <style>
+	/* 1. 让导航容器水平、垂直全居中 */
+#nav {
+    display: flex !important;
+    justify-content: center !important; /* 水平居中 */
+    align-items: center !important;     /* 垂直居中 */
+    height: 65px !important;            /* 稍微加高一点点，更有呼吸感 */
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+/* 2. 移除列表默认样式 */
+#nav ul {
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* 3. 按钮基础样式与垂直对齐 */
+#nav ul li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important;            /* 限制底框高度 */
+    padding: 0 20px !important;
+    margin: 0 10px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-decoration: none !important;
+    font-size: 0.95rem !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid transparent;      /* 预留边框位置，防止抖动 */
+    border-radius: 8px !important;
+}
+
+/* 4. 鼠标移上去：背景变亮 + 白紫渐变描边 */
+#nav ul li:hover a, 
+#nav ul li.current a {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    
+    /* 核心：利用 border-image 实现渐变描边 */
+    border: 1px solid !important;
+    border-image-source: linear-gradient(135deg, #ffffff 0%, #7c3aed 100%) !important;
+    border-image-slice: 1 !important;
+    border-radius: 8px !important; /* 注意：border-image 会让 border-radius 失效 */
+}
+
+/* 针对 border-image 无法圆角的兼容方案 (如果需要圆角渐变边框，改用下面这个) */
+#nav ul li:hover a {
+    border: none !important;
+    background: 
+        linear-gradient(#1a1a1a, #1a1a1a) padding-box, /* 背景色 */
+        linear-gradient(135deg, #ffffff, #7c3aed) border-box !important; /* 渐变边框 */
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
+}
 	/* 1. 确保导航容器是弹性布局，且垂直居中 */
 #nav {
     display: flex !important;
@@ -386,6 +444,7 @@
 	</body>
 
 </html>
+
 
 
 
