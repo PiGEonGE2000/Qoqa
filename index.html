@@ -12,150 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 <style>
-	/* 1. 让导航容器水平、垂直全居中 */
-#nav {
-    display: flex !important;
-    justify-content: center !important; /* 水平居中 */
-    align-items: center !important;     /* 垂直居中 */
-    height: 65px !important;            /* 稍微加高一点点，更有呼吸感 */
-    position: fixed !important;
-    top: 0;
-    width: 100%;
-    z-index: 10000;
-}
 
-/* 2. 移除列表默认样式 */
-#nav ul {
-    display: flex !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
-}
-
-/* 3. 按钮基础样式与垂直对齐 */
-#nav ul li a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 38px !important;            /* 限制底框高度 */
-    padding: 0 20px !important;
-    margin: 0 10px !important;
-    color: rgba(255, 255, 255, 0.8) !important;
-    text-decoration: none !important;
-    font-size: 0.95rem !important;
-    transition: all 0.3s ease !important;
-    border: 1px solid transparent;      /* 预留边框位置，防止抖动 */
-    border-radius: 8px !important;
-}
-
-/* 4. 鼠标移上去：背景变亮 + 白紫渐变描边 */
-#nav ul li:hover a, 
-#nav ul li.current a {
-    background: rgba(255, 255, 255, 0.1) !important;
-    color: #ffffff !important;
-    
-    /* 核心：利用 border-image 实现渐变描边 */
-    border: 1px solid !important;
-    border-image-source: linear-gradient(135deg, #ffffff 0%, #7c3aed 100%) !important;
-    border-image-slice: 1 !important;
-    border-radius: 8px !important; /* 注意：border-image 会让 border-radius 失效 */
-}
-
-/* 针对 border-image 无法圆角的兼容方案 (如果需要圆角渐变边框，改用下面这个) */
-#nav ul li:hover a {
-    border: none !important;
-    background: 
-        linear-gradient(#1a1a1a, #1a1a1a) padding-box, /* 背景色 */
-        linear-gradient(135deg, #ffffff, #7c3aed) border-box !important; /* 渐变边框 */
-    border: 1px solid transparent !important;
-    border-radius: 8px !important;
-}
-	/* 1. 确保导航容器是弹性布局，且垂直居中 */
-#nav {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important; /* 水平居中 */
-    height: 60px !important;            /* 统一导航栏高度，你可以根据需要调整数值 */
-    padding: 0 !important;
-}
-
-/* 2. 修正菜单列表的样式 */
-#nav ul {
-    display: flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
-}
-
-/* 3. 核心：修正文字链接的行高和内边距 */
-#nav ul li a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 40px !important;            /* 链接块的高度 */
-    line-height: 1 !important;          /* 消除默认行高干扰 */
-    padding: 0 20px !important;         /* 左右间距 */
-    margin: 0 5px !important;           /* 按钮之间的间距 */
-    vertical-align: middle !important;
-}
-
-/* 4. 如果你用的是那个带圆角的灰色背景块（active/hover 状态） */
-#nav ul li.current a, 
-#nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-radius: 8px !important;      /* 增加一点圆角更有 Linear 质感 */
-}
-	/* 强力抹除顶部灰条 */
-#header-wrapper, #header, body {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    border-top: none !important;
-    background-image: none !important; /* 很多灰条其实是背景图的一部分 */
-    background-color: transparent !important;
-}
-
-/* 确保你的视频背景能顶到最上面 */
-#welcome-screen {
-    top: 0;
-    margin-top: 0;
-}
-	/* 强制覆盖 assets/css/main.css 中的导航样式 */
-#nav {
-    position: fixed !important; /* 变成固定顶部 */
-    top: 0 !important;
-    left: 0;
-    width: 100%;
-    z-index: 10000;
-    
-    /* 1. 磨砂玻璃黑色方案 */
-    background: rgba(0, 0, 0, 0.75) !important;
-    backdrop-filter: blur(15px) !important;
-    -webkit-backdrop-filter: blur(15px) !important;
-    
-    /* 2. Linear 风格边框 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    
-    /* 3. 修正间距 */
-    margin: 0 !important;
-    padding: 15px 0 !important;
-}
-
-/* 修正文字样式 */
-#nav > ul > li > a {
-    color: rgba(255, 255, 255, 0.8) !important;
-    background: transparent !important;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-/* 鼠标悬停/当前页面样式 */
-#nav > ul > li.active > a,
-#nav > ul > li:hover > a {
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-}
 #welcome-screen {
     position: relative; /* 改为相对定位，使其占据文档流的第一屏 */
     width: 100%;
@@ -444,6 +301,7 @@
 	</body>
 
 </html>
+
 
 
 
