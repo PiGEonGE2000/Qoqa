@@ -44,27 +44,35 @@
 }
 
 .welcome-content h1 {
-    /* 1. 字体：优先使用 Inter，这是 Linear 风格的灵魂 */
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    
-    /* 2. 颜色与大小 */
-    color: #ffffff;
-    font-size: clamp(2.5rem, 10vw, 6rem); /* 响应式大小 */
-    
-    /* 3. 粗细：Linear 喜欢稍微粗一点或极细，这里推荐 700 更有力量感 */
-    font-weight: 700;
-    
-    /* 4. 字间距：紧凑是高级感的来源，负值是关键 */
-    letter-spacing: -0.04em; 
-    
-    /* 5. 文字阴影：不要那种很脏的投影，要这种微弱的发光感或清晰的分层感 */
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 
-                 0 0 20px rgba(255, 255, 255, 0.1);
-    
-    /* 6. 细节微调 */
-    margin-bottom: 10px;
+    font-size: clamp(2.5rem, 10vw, 6rem);
+    font-weight: 800; /* 稍微加粗一点，渐变效果更明显 */
+    letter-spacing: -0.04em;
     line-height: 1.1;
-    text-transform: uppercase; /* 强制大写更有设计感 */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    /* --- 核心：渐变字代码 --- */
+    /* linear-gradient 的方向是 to bottom（从上到下） */
+    /* 0% 是白色，50% 开始向蓝紫色过渡 */
+    background: linear-gradient(
+        to bottom, 
+        #ffffff 0%, 
+        #ffffff 40%, 
+        #7c3aed 80%, 
+        #3b82f6 100%
+    );
+    
+    /* 将背景裁剪到文字上 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    
+    /* 必须把文字颜色设为透明，否则会挡住底下的渐变 */
+    color: transparent;
+    
+    /* --- 投影增强 --- */
+    /* 因为用了裁剪，传统的 text-shadow 会失效，我们需要用 filter 来加阴影 */
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
 }
 
 /* 顺便优化一下副标题 p 标签 */
@@ -110,8 +118,8 @@
     </video>
     
     <div class="welcome-content">
-        <h1>QOQA PROJECT</h1>
-        <p>探索视觉与设计的无限可能</p>
+        <h1>QOQA PORTFOLIO</h1>
+        <p>Welcome to my world</p>
         <div class="scroll-indicator">↓</div>
     </div>
 </div>
@@ -307,6 +315,7 @@
 	</body>
 
 </html>
+
 
 
 
