@@ -12,7 +12,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 <style>
-
+/* 1. 解决白色顶边：让 body 背景变黑，并消除所有默认间距 */
+html, body {
+    background-color: #000 !important; /* 确保背景底色是黑的 */
+    margin: 0 !important;
+    padding: 0 !important;
+}
 #welcome-screen {
     position: relative; /* 改为相对定位，使其占据文档流的第一屏 */
     width: 100%;
@@ -301,6 +306,7 @@
 	</body>
 
 </html>
+
 
 
 
