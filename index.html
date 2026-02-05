@@ -83,36 +83,6 @@
     letter-spacing: 0.1em;
     font-weight: 300;
 }
-	/* 针对你模板中的导航栏进行精准覆盖 */
-header, .header-section, .navbar, .fixed-top {
-    /* 1. 纯黑 + 磨砂玻璃 (!important 确保优先级最高) */
-    background-color: rgba(0, 0, 0, 0.7) !important; 
-    backdrop-filter: blur(20px) !important; 
-    -webkit-backdrop-filter: blur(20px) !important;
-    
-    /* 2. 去掉原有的背景图片、渐变、投影 */
-    background-image: none !important;
-    box-shadow: none !important;
-    
-    /* 3. Linear 风格的底部细边框 */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    
-    /* 4. 确保它是固定在顶部的 */
-    position: fixed !important;
-    top: 0 !important;
-    width: 100% !important;
-    transition: all 0.3s ease;
-}
-
-/* 调整导航文字颜色，防止在黑底上看不见 */
-.navbar-nav .nav-link, .nav-item a, .navbar-brand {
-    color: rgba(255, 255, 255, 0.8) !important;
-    font-family: 'Inter', sans-serif !important;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #ffffff !important;
-}
 </style>
 
 	</head>
@@ -330,6 +300,7 @@ header, .header-section, .navbar, .fixed-top {
 	</body>
 
 </html>
+
 
 
 
