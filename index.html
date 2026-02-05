@@ -12,6 +12,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 <style>
+	/* 强力抹除顶部灰条 */
+#header-wrapper, #header, body {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    border-top: none !important;
+    background-image: none !important; /* 很多灰条其实是背景图的一部分 */
+    background-color: transparent !important;
+}
+
+/* 确保你的视频背景能顶到最上面 */
+#welcome-screen {
+    top: 0;
+    margin-top: 0;
+}
 	/* 强制覆盖 assets/css/main.css 中的导航样式 */
 #nav {
     position: fixed !important; /* 变成固定顶部 */
@@ -336,6 +350,7 @@
 	</body>
 
 </html>
+
 
 
 
