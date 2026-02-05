@@ -12,6 +12,42 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 <style>
+	/* 1. 确保导航容器是弹性布局，且垂直居中 */
+#nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; /* 水平居中 */
+    height: 60px !important;            /* 统一导航栏高度，你可以根据需要调整数值 */
+    padding: 0 !important;
+}
+
+/* 2. 修正菜单列表的样式 */
+#nav ul {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* 3. 核心：修正文字链接的行高和内边距 */
+#nav ul li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 40px !important;            /* 链接块的高度 */
+    line-height: 1 !important;          /* 消除默认行高干扰 */
+    padding: 0 20px !important;         /* 左右间距 */
+    margin: 0 5px !important;           /* 按钮之间的间距 */
+    vertical-align: middle !important;
+}
+
+/* 4. 如果你用的是那个带圆角的灰色背景块（active/hover 状态） */
+#nav ul li.current a, 
+#nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;      /* 增加一点圆角更有 Linear 质感 */
+}
 	/* 强力抹除顶部灰条 */
 #header-wrapper, #header, body {
     padding-top: 0 !important;
@@ -350,6 +386,7 @@
 	</body>
 
 </html>
+
 
 
 
