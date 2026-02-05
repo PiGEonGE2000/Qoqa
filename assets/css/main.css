@@ -2036,34 +2036,32 @@ input, select, textarea {
 /* Nav */
 
 	#nav {
-    position: fixed;
-    top: 0;
-    left: 0;
+    /* 确保容器占满全宽 */
     width: 100%;
-    height: 70px;
-    z-index: 10000;
-    background: rgba(0, 0, 0, 0.75); /* 黑色磨砂背景 */
+    text-align: center; /* 传统的水平居中方法 */
+    
+    /* 之前的磨砂黑效果 */
+    background: rgba(0, 0, 0, 0.75) !important;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    display: flex;             /* 使用 Flex 布局 */
-    justify-content: center;   /* 水平居中核心代码 */
-    align-items: center;       /* 垂直居中核心代码 */
-    margin: 0;
-    padding: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    position: fixed;
+    top: 0;
+    z-index: 10000;
 }
 
-		#nav ul {
-    display: flex;
+		#nav > ul {
+    margin: 0 auto;        /* 强制 ul 在 nav 中间 */
+    display: inline-block; /* 配合父元素的 text-align: center */
+    padding: 0;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
 }
 
-#nav ul li {
-    margin: 0 5px;
-    padding: 0;
+#nav > ul > li {
+    display: inline-block; /* 让菜单项横向排列 */
+    float: none !important; /* 彻底禁用浮动，防止居左 */
+    vertical-align: middle;
+    margin: 0 10px;
 }
 
 		#nav ul li a {
@@ -2079,15 +2077,16 @@ input, select, textarea {
     border: 1px solid transparent; /* 基础边框 */
 }
 
-/* 鼠标经过和当前页面的样式 */
-#nav ul li:hover a, 
-#nav ul li.current a {
-    color: #ffffff;
-    /* 渐变边框黑科技 */
+/* 鼠标悬停效果 */
+#nav > ul > li:hover > a,
+#nav > ul > li.active > a {
+    color: #ffffff !important;
+    /* 实现圆角渐变边框的黑科技 */
     background: 
-        linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)) padding-box, 
-        linear-gradient(135deg, #ffffff, #7c3aed) border-box;
-    border: 1px solid transparent;
+        linear-gradient(#000, #000) padding-box, 
+        linear-gradient(135deg, #ffffff, #7c3aed) border-box !important;
+    border: 1px solid transparent !important;
+    border-radius: 8px !important;
 }
 
 /* Articles */
